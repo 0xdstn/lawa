@@ -36,4 +36,5 @@ You can use the following commands (example: `lawa.py add`):
 
 ## Release notes
 
+- `v1.0.1` Added handling for no posts, added .lawa file creation if missing
 - `v1.0.0` Initial release

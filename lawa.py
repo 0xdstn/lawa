@@ -4,6 +4,7 @@ import sys
 import re
 import click
 import pytz
+from os.path import exists
 from datetime import datetime
 from pathlib import Path
 
@@ -18,8 +19,13 @@ tagRegex = r'(~[a-zA-Z]*)'
 
 args = sys.argv
 
-print('')
 dataFile = str(Path.home()) + "/.lawa"
+
+if not exists(dataFile):
+    with open(dataFile, 'w') as fp:
+        pass
+
+print('')
 data = open(dataFile, "r").read().strip().split('\n')
 
 # comment out this line to use system timezone, otherwise change
@@ -45,7 +51,7 @@ def help():
     print('delete [YYYY-MM-DD]  Delete the specified post')
 
 def about():
-    print('Version:    1.0.0')
+    print('Version:    1.0.1')
     print('Author:     0xdstn')
     print('Source:     https://github.com/0xdstn/lawa')
     print('More info:  https://tilde.town/~dustin/projects/lawa')
@@ -58,11 +64,13 @@ def getData(day):
 
 def displayAll():
     for x in data[::-1]:
-        display(x[0:11],x[11:])
+        if len(x):
+            display(x[0:11],x[11:])
 
 def displayDates():
     for x in data[::-1]:
-        print(x[0:11] + ' ' + postStats(x[11:]))
+        if len(x):
+            print(x[0:11] + ' ' + postStats(x[11:]))
 
 def displayTagged(tag):
     color = ''
