@@ -36,5 +36,6 @@ You can use the following commands (example: `lawa.py add`):
 
 ## Release notes
 
+- `v1.0.2` Added editing of today when edit with no date is provided
 - `v1.0.1` Added handling for no posts, added .lawa file creation if missing
 - `v1.0.0` Initial release

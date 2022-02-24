@@ -51,7 +51,7 @@ def help():
     print('delete [YYYY-MM-DD]  Delete the specified post')
 
 def about():
-    print('Version:    1.0.1')
+    print('Version:    1.0.2')
     print('Author:     0xdstn')
     print('Source:     https://github.com/0xdstn/lawa')
     print('More info:  https://tilde.town/~dustin/projects/lawa')
@@ -244,6 +244,8 @@ elif args[1] == 'add':
     add()
 elif len(args) == 3 and args[1] == 'edit':
     edit(args[2])
+elif args[1] == 'edit':
+    add()
 elif len(args) == 3 and args[1] == 'delete':
     delete(args[2])
 elif len(args) == 3 and args[1] == 'view':
